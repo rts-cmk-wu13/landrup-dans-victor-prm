@@ -27,13 +27,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="min-h-screen bg-dance scroll-smooth">
+    <html lang="en" className="min-h-screen cust-bg-gradient scroll-smooth">
       <body
         className={`${genos.variable} ${font_ubuntu.variable} ${red_had_text.variable} antialiased max-w-6xl mx-auto`}
       >
         <LandingHero />
 
-        <main id="main">
+        <main id="main" className="container">
           {children}
         </main>
         

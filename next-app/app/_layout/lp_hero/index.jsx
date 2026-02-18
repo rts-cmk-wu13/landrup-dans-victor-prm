@@ -6,8 +6,8 @@ import Link from "next/link"
 
 export default function LandingHero() {
     return (
-        <div className="relative overflow-clip">
-            <figure className="flex min-h-dvh opacity-90">
+        <div className="relative overflow-clip shape-dance after:absolute after:inset-0 after:bg-radial after:from-transparent after:from-80% after:to-dance-reg">
+            <figure className="flex h-dvh opacity-66 max-h-200">
                 <Image
                     src={HeroBG}
                     alt="Landrup Dans Logo"
@@ -28,10 +28,10 @@ export default function LandingHero() {
                 </div>
                 
             </div>
-            <div className="w-full flex flex-col gap-8 items-center absolute bottom-16 left-1/2 -translate-x-1/2">
-                <button className="box-dance bg-dance-e9 min-w-60 text-dance-reg p-3">Log ind her</button>
+            <div className="w-full flex flex-col gap-8 items-center absolute bottom-16 left-1/2 -translate-x-1/2 z-10">
+                <button className="box-dance cust-acc-gradient min-w-60 text-dance-reg p-3">Log ind her</button>
                 {/* Next Link doesnt seem to work here? */}
-                <a href="#main" className="px-12"><FaAngleDoubleDown className="size-8 text-dance-reg animate-bounce"/></a>
+                <a href="#main" className="px-12"><FaAngleDoubleDown className="size-8 text-dance-acc animate-bounce"/></a>
             </div>
             
         </div>
