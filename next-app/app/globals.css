@@ -2,14 +2,27 @@
 
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  /* 14 %L */
+  --color-dance-reg: #003147;
+  /* 5 %L */
+  --color-dance-drk: #00111a;
+  /* 70 %L */
+  --color-dance-lte: #66cfff;
+  /* 90 %L */
+  --color-dance-bri: #ccefff;
+
+  --color-dance-ff: #f5fcff;
+  --color-dance-e9: #e7e8e9;
+  --color-dance-99: #949b9e;
+  --color-dance-6f: #6d7578;
+  --color-dance-00: #00070a;
+
 
   --font-genos: var(--font-genos);
   --font-ubuntu: var(--font-ubuntu);
   --font-redhat: var(--font-redhat);
-  
-  
+
+
 }
 
 body {
