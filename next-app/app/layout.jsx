@@ -1,5 +1,5 @@
 import LandingFooter from "./_layout/lp-footer";
-import LandingHero from "./_layout/lp_hero";
+import LandingHero from "./_layout/lp-hero";
 
 import { Genos, Ubuntu, Red_Hat_Text } from "next/font/google";
 import "./globals.css";

@@ -23,6 +23,43 @@
   --font-ubuntu: var(--font-ubuntu);
   --font-redhat: var(--font-redhat);
 
+  --animate-fade-in: fade-in 1s ease-out forwards;
+  --animate-fade-in-scale: fade-in-scale 1s ease-out forwards;
+  --animate-fade-in-ltr: fade-in-ltr 1s ease-out forwards;
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-in-scale {
+    0% {
+      opacity: 0;
+      transform: scale(0.7);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes fade-in-ltr {
+    0% {
+      opacity: 0;
+      transform: translateX(-25%);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+  }
 
 }
 

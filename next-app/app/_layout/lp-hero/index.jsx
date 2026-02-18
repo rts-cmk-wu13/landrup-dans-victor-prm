@@ -18,13 +18,13 @@ export default function LandingHero() {
                 />
             </figure>
             <div className="w-full flex flex-col gap-8 items-center absolute top-16 left-1/2 -translate-x-1/2">
-                <CompanyLogo />
+                <CompanyLogo twclass="animate-fade-in-scale"/>
                 <div className="relative">
                     <h1 className="flex flex-col items-end text-dance-e9 font-genos text-5xl font-bold italic uppercase leading-[66%]">
-                        <span className="mr-6">Landrup</span>
-                        <span>Dans</span>
+                        <span className="mr-6 animate-fade-in-ltr">Landrup</span>
+                        <span className="animate-fade-in-ltr">Dans</span>
                     </h1>
-                    <hr className="mt-2 border-3 absolute -left-[200%] border-dance-e9 w-[300%]" />
+                    <hr className="mt-2 border-3 absolute -left-[200%] border-dance-e9 w-[300%] animate-fade-in-ltr" />
                 </div>
                 
             </div>
