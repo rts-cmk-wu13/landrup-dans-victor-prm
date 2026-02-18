@@ -35,12 +35,16 @@
     @apply bg-linear-120 from-dance-e9 to-dance-acc
   }
 
-  .box-dance {
-    @apply rounded-2xl shadow-xl shadow-dance-00/25 border border-dance-00/5 py-1 px-4 font-ubuntu text-lg font-medium
+  .cust-container {
+    @apply rounded-2xl shadow-xl shadow-dance-00/25 ring ring-dance-e9/5 py-1 px-4 font-ubuntu text-lg font-medium
   }
 
-  .shape-dance {
-    @apply rounded-[2.5rem_2.5rem_0_2.5rem]
+  .cust-button {
+    @apply font-ubuntu text-lg font-medium
+  }
+
+  .cust-shape {
+    @apply rounded-[2rem_2rem_0_2rem] size-fit ring ring-dance-e9/5
   }
 }
 
