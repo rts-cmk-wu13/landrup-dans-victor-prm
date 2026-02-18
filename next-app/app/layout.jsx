@@ -1,4 +1,5 @@
 import LandingFooter from "./_layout/lp-footer";
+import LandingHero from "./_layout/lp_hero";
 
 import { Genos, Ubuntu, Red_Hat_Text } from "next/font/google";
 import "./globals.css";
@@ -26,13 +27,16 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="min-h-screen bg-dance scroll-smooth">
       <body
-        className={`${genos.variable} ${font_ubuntu.variable} ${red_had_text.variable} antialiased`}
+        className={`${genos.variable} ${font_ubuntu.variable} ${red_had_text.variable} antialiased max-w-6xl mx-auto`}
       >
-        <main className="bg-dance-reg bg-linear-120 from-dance-reg to-dance-drk/33">
+        <LandingHero />
+
+        <main id="main">
           {children}
         </main>
+        
         <LandingFooter />
       </body>
     </html>

@@ -17,12 +17,20 @@
   --color-dance-6f: #6d7578;
   --color-dance-00: #00070a;
 
-
   --font-genos: var(--font-genos);
   --font-ubuntu: var(--font-ubuntu);
   --font-redhat: var(--font-redhat);
 
 
+}
+
+@layer components {
+  .bg-dance {
+    @apply bg-dance-reg bg-linear-120 from-dance-reg to-dance-drk/33
+  }
+  .box-dance {
+    @apply rounded-xl shadow-xl shadow-dance-00/25 border border-dance-00/5 py-1 px-4 font-ubuntu text-lg
+  }
 }
 
 body {
