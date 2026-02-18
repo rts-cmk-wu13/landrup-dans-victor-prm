@@ -1,6 +1,7 @@
 import Image from "next/image"
 import HeroBG from "@/app/_assets/img/heroimg.jpg"
 import CompanyLogo from "@/app/_components/company-logo"
+import { FaAngleDoubleDown } from "react-icons/fa";
 import Link from "next/link"
 
 export default function LandingHero() {
@@ -30,7 +31,7 @@ export default function LandingHero() {
             <div className="w-full flex flex-col gap-8 items-center absolute bottom-16 left-1/2 -translate-x-1/2">
                 <button className="box-dance bg-dance-e9 min-w-60 text-dance-reg p-3">Log ind her</button>
                 {/* Next Link doesnt seem to work here? */}
-                <a href="#main">Go</a>
+                <a href="#main" className="px-12"><FaAngleDoubleDown className="size-8 text-dance-reg animate-bounce"/></a>
             </div>
             
         </div>
