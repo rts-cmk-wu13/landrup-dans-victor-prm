@@ -73,24 +73,26 @@
   }
 
   .cust-container {
-    @apply rounded-2xl shadow-xl shadow-dance-00/25 ring ring-dance-e9/10 py-1 px-4
+    @apply rounded-2xl shadow-xl shadow-dance-00/25 ring ring-dance-e9/7.5 py-1 px-4
   }
 
   .cust-button {
-    @apply font-ubuntu text-lg font-medium
+    @apply rounded-[1rem_1rem_1px_1rem] font-ubuntu text-lg font-medium text-center leading-none flex items-center justify-center h-12 w-fit
   }
 
   .cust-shape {
-    @apply rounded-[2rem_2rem_1px_2rem] size-fit ring ring-dance-e9/10
-  }
-
-  .cust-body-text {
-     @apply font-redhat opacity-90 leading-snug
+    @apply rounded-[2rem_2rem_1px_2rem] size-fit ring ring-dance-e9/7.5 h-12
   }
 
   .cust-input {
-    @apply font-medium ring rounded-[1px] ring-dance-e9/10 bg-dance-e9 placeholder:text-dance-99 p-3 text-dance-drk
+    @apply rounded-2xl font-medium ring ring-dance-e9/7.5 bg-dance-e9 placeholder:text-dance-99 py-3 px-6 text-dance-drk
   }
+
+  .cust-body-text {
+    @apply font-redhat opacity-90 leading-snug
+  }
+
+
 }
 
 body {

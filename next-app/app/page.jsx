@@ -3,6 +3,7 @@ import LandingFooter from "./_components/landing-page/lp-footer";
 
 import LandingClasses from "./_components/landing-page/lp-section/lp-classes";
 import LandingNewsletter from "./_components/landing-page/lp-section/lp-newsletter";
+import LandingContact from "./_components/landing-page/lp-section/lp-contact";
 
 
 
@@ -13,6 +14,7 @@ export default function Home() {
       <main id="main" className="grow px-3 pb-20">
         <LandingClasses />
         <LandingNewsletter />
+        <LandingContact />
       </main>
       <LandingFooter />
     </div>
