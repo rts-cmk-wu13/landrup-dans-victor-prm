@@ -81,11 +81,11 @@
   }
 
   .cust-shape {
-    @apply rounded-[2rem_2rem_1px_2rem] size-fit ring ring-dance-e9/7.5 h-12
+    @apply rounded-[2rem_2rem_1px_2rem] size-fit ring ring-dance-e9/7.5
   }
 
   .cust-input {
-    @apply rounded-2xl font-medium ring ring-dance-e9/7.5 bg-dance-e9 placeholder:text-dance-99 py-3 px-6 text-dance-drk
+    @apply rounded-2xl font-medium ring ring-dance-e9/7.5 bg-dance-e9 placeholder:text-dance-99 py-3 px-6 text-dance-drk h-12
   }
 
   .cust-body-text {

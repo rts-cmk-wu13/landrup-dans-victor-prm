@@ -15,7 +15,7 @@ export default function ActivityCard({ title, subtitle, description, img }) {
                 />
                 {
                     title &&
-                    (<figcaption className="cust-shape flex flex-col gap-1 py-4 px-6 w-full self-end bg-dance-drk/75 backdrop-blur-[1px] -mb-px text-left">
+                    (<figcaption className="flex flex-col gap-1 self-end px-6 py-2 w-full bg-dance-drk/75 backdrop-blur-[1px] text-left">
                         <h2 className="text-[1.375rem] font-medium">{title}</h2>
                         {subtitle && <p className="">{subtitle}</p>}
                     </figcaption>)
