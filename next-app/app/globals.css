@@ -73,7 +73,7 @@
   }
 
   .cust-container {
-    @apply rounded-2xl shadow-xl shadow-dance-00/25 ring ring-dance-e9/5 py-1 px-4 font-ubuntu text-lg font-medium
+    @apply rounded-2xl shadow-xl shadow-dance-00/25 ring ring-dance-e9/10 py-1 px-4
   }
 
   .cust-button {
@@ -81,11 +81,15 @@
   }
 
   .cust-shape {
-    @apply rounded-[2rem_2rem_0_2rem] size-fit ring ring-dance-e9/5
+    @apply rounded-[2rem_2rem_1px_2rem] size-fit ring ring-dance-e9/10
   }
 
   .cust-body-text {
      @apply font-redhat opacity-90 leading-snug
+  }
+
+  .cust-input {
+    @apply font-medium ring rounded-[1px] ring-dance-e9/10 bg-dance-e9 placeholder:text-dance-99 p-3 text-dance-drk
   }
 }
 

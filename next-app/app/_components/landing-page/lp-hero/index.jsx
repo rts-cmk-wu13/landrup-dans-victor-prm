@@ -6,7 +6,7 @@ import Link from "next/link"
 
 export default function LandingHero() {
     return (
-        <div className="relative cust-shape overflow-clip after:absolute after:inset-0 after:bg-radial after:from-transparent after:from-80% after:to-dance-reg">
+        <div className="relative overflow-clip after:absolute after:inset-0 after:bg-radial after:from-transparent after:from-80% after:to-dance-reg">
             <figure className="flex h-dvh opacity-66 max-h-200">
                 <Image
                     src={HeroBG}
