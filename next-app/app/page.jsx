@@ -1,27 +1,32 @@
+import LandingHero from "./_components/landing-page/lp-hero";
+import LandingSection from "./_components/landing-page/lp-section";
+import LandingFooter from "./_components/landing-page/lp-footer";
+
 import ActivityCard from "./_components/activity-card";
+import { danceClasses } from "./_lib/static";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen w-full flex-col items-center justify-between ">
-      <div className="text-dance-e9 flex flex-col gap-2">
-        <h1 className="font-genos text-5xl font-bold italic text-linear-accent">LANDRUP</h1>
-        <h2 className="font-ubuntu text-3xl ">Ubuntu</h2>
-        <p className="font-redhat text-dance-ff">
-          På børneholdene leger vi os ind i dansens verden gennem musik, bevægelse og fantasi.
-          Undervisningen styrker motorik, rytme og kropsbevidsthed i trygge rammer.
-          Fokus er på danseglæde, fællesskab og aktiv bevægelse, hvor alle kan være med.
-        </p>
+    <div className="min-h-screen flex flex-col gap-12 mx-auto max-w-[1360]">
+      <LandingHero />
+      <main id="main" className="grow px-3 pb-20">
+        <LandingSection title="Vores holdtyper">
+          {/* was grid-cols-[repeat(auto-fill,minmax(20rem,1fr))] */}
+          <ul className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-4 gap-y-12">
+            {
+              danceClasses.map((dc, _i) => {
+                return (
+                  <ActivityCard key={_i} title={dc.title} description={dc.description} img={dc.img} />
+                )
+              })
+            }
+          </ul>
 
-        <ul className="grid grid-cols-[repeat(auto-fill,minmax(clamp(240px,20vw,400px),1fr))] gap-6">
-          <ActivityCard title="Junior Fitness Dance" description="10-12 år" />
-          <ActivityCard title="Tango for begyndere" description="10-12 år" />
-          <ActivityCard title="Tango for øvede" description="10-12 år" />
-          <ActivityCard title="Zumba" description="10-12 år" />
-          <ActivityCard title="Zumba" description="10-12 år" />
-          <ActivityCard title="Zumba" description="10-12 år" />
-        </ul>
-      </div>
+        </LandingSection>
+      </main>
+      <LandingFooter />
     </div>
+
 
   );
 }

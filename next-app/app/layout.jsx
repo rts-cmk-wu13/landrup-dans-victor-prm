@@ -1,5 +1,5 @@
-import LandingFooter from "./_layout/lp-footer";
-import LandingHero from "./_layout/lp-hero";
+import LandingFooter from "./_components/landing-page/lp-footer";
+import LandingHero from "./_components/landing-page/lp-hero";
 
 import { Genos, Ubuntu, Red_Hat_Text } from "next/font/google";
 import "./globals.css";
@@ -27,17 +27,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="min-h-screen cust-bg-gradient scroll-smooth">
+    <html lang="en" className="cust-bg-gradient scroll-smooth">
       <body
-        className={`${genos.variable} ${font_ubuntu.variable} ${red_had_text.variable} antialiased max-w-6xl mx-auto`}
+        className={`${genos.variable} ${font_ubuntu.variable} ${red_had_text.variable} antialiased w-full`}
       >
-        <LandingHero />
-
-        <main id="main" className="container">
-          {children}
-        </main>
-        
-        <LandingFooter />
+        {children}
       </body>
     </html>
   );

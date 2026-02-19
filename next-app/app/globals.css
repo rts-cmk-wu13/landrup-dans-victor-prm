@@ -83,6 +83,10 @@
   .cust-shape {
     @apply rounded-[2rem_2rem_0_2rem] size-fit ring ring-dance-e9/5
   }
+
+  .cust-body-text {
+     @apply font-redhat opacity-90 leading-snug
+  }
 }
 
 body {
