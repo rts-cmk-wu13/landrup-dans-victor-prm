@@ -1,5 +1,21 @@
 import z from "zod"
 
+/*--- Schema for /auth/token ---*/
+export const loginSchema = z.object({
+    username: z
+        .string({ message: "Type a valid email" }),
+    password: z
+        .string({ message: "Type a valid email" })
+});
+
+
+/*--- Schema for /newsletter ---*/
+export const newsletterSchema = z.object({
+    email: z.email({ message: "Email ikke gyldig" }),
+});
+
+
+/*--- Schema for /messages ---*/
 export const contactSchema = z.object({
     name: z
         .string({ message: "Type a valid email" })
@@ -14,8 +30,4 @@ export const contactSchema = z.object({
     /* .refine(v => v.length > 10, {
         message: "Message not long enough",
     }), */
-});
-
-export const newsletterSchema = z.object({
-    email: z.email({ message: "Email ikke gyldig" }),
 });

@@ -2,39 +2,36 @@
 
 import LandingSection from "@/app/_components/views/landing-page/lp-section";
 import InputField from "@/app/_components/input-field"
-import sendMessage from "@/app/_components/views/landing-page/lp-section/lp-contact/action";
+import logUserIn from "./action";
 import { useActionState } from "react";
-import { useEffect } from "react";
-
-import { toast } from "react-toastify";
 
 
 const initialState = {
     values: {
-        name: "Ursula",
-        email: "urs@mail.dk",
-        message: "Hvornår har I Zumba-timer igen? Det var megasjovt sidste år!"
+        username: "user3",
+        password: "1234",
     },
     errors: undefined
 }
 
 export default function Page() {
-    const [state, formAction, isPending] = useActionState(sendMessage, initialState);
+    const [state, formAction, isPending] = useActionState(logUserIn, initialState);
     /*  console.log(state) */
-
-    useEffect(() => {
-        if (state?.id) {
-            toast.success("Tak for din besked!")
-        }
-    }, [state?.id]);
 
     return (
         <LandingSection title="Log ind">
-            <p className="cust-body-text">Har du spørgsmål? Skriv til os, vi lover at vende tilbage hurtigst muligt.</p>
+            {/* <p className="cust-body-text">Velkommen tilbage!</p> */}
             <form className="cust-form flex-col" action={formAction} noValidate>
-                <InputField type="text" name="name" label="navn" defaultValue={state?.values?.name} errors={state?.errors?.name} />
-                <InputField type="email" name="email" label="email" defaultValue={state?.values?.email} errors={state?.errors?.email} />
-                <button className="cust-container cust-button cust-acc-gradient text-dance-reg p-2 min-w-40 ml-auto" type="submit">Log ind</button>
+                <InputField type="text" name="username" label="brugernavn" defaultValue={state?.values?.username} errors={state?.errors?.username} />
+                <InputField type="password" name="password" label="password" defaultValue={state?.values?.password} errors={state?.errors?.password} />
+                <div className="ml-auto flex gap-5 items-center">
+                    <label className="flex gap-2 cust-body-text font-medium items-center before:bg-amber-500" htmlFor="remember">
+                        <span className="text-lg leading-none">Husk mig</span>
+                        <input className="size-6 accent-dance-acc cursor-pointer" type="checkbox" name="remember" id="" />
+                    </label>
+                    <button className="cust-container cust-button cust-acc-gradient text-dance-reg p-2 min-w-40" type="submit">Log ind</button>
+                </div>
+
             </form>
         </LandingSection>
     )
