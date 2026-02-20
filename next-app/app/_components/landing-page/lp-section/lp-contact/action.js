@@ -1,6 +1,7 @@
 "use server"
 import z from "zod";
 import { postToMessages } from "@/app/_lib/dal";
+import { compareFormData } from "@/app/_utils/helpers";
 
 //To-do: check if user is logged in, and already signed up
 
@@ -30,16 +31,7 @@ export default async function sendMessage(prevState, formData) {
         message: formData.get("message"),
     };
 
-    /* console.log("🔴", values)
-    console.log("🟠", prevState?.values) */
-
-    if (
-        prevState?.values?.name === values.name &&
-        prevState?.values?.email === values.email &&
-        prevState?.values?.message === values.message
-    ) {
-        return prevState;
-    }
+    compareFormData(values, prevState)
 
     const validate = contactSchema.safeParse(values);
     if (!validate.success) {

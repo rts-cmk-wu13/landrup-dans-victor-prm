@@ -1,6 +1,7 @@
 "use server"
 import z from "zod";
 import { postToNewsletter } from "@/app/_lib/dal";
+import { compareFormData } from "@/app/_utils/helpers";
 
 //To-do: check if user is logged in, and already signed up
 
@@ -14,14 +15,7 @@ export default async function subscribeToNewsletter(prevState, formData) {
         email: formData.get("email"),
     };
 
-    /* console.log("🔴", values)
-    console.log("🟠", prevState?.values) */
-
-    if (
-        prevState?.values?.email === values.email
-    ) {
-        return prevState;
-    }
+    compareFormData(values, prevState)
 
     const validate = newsletterSchema.safeParse(values);
     if (!validate.success) {
