@@ -5,17 +5,17 @@ import InputField from "@/app/_components/input-field"
 
 import { useActionState, useEffect } from "react"
 import subscribeToNewsletter from "./action"
+import { toast } from "react-toastify";
+import ToastMessage from "@/app/_components/toast-message"
 
 
 export default function LandingNewsletter() {
     const [state, formAction, isPending] = useActionState(subscribeToNewsletter, {});
     /* console.log("Errors", state.errors) */
 
-    console.log(state)
-
     useEffect(() => {
         if (state?.id) {
-            console.warn("SHOW TOAST HERE")
+            toast.success("Tak for din tilmelding")
         }
     }, [state?.id]);
 

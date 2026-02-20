@@ -1,6 +1,7 @@
 "use server"
 import z from "zod";
 import { fetchFromApi } from "@/app/_lib/dal";
+import { toast } from "react-toastify";
 
 //To-do: check if user is logged in, and already signed up
 
@@ -16,9 +17,6 @@ const newsletterSchema = z.object({
 
 export default async function subscribeToNewsletter(prevState, formData) {
     //Create values to not manually type email again all the time
-
-    console.log("HEJ", formData, prevState)
-
     const values = {
         email: formData.get("email"),
     };
@@ -32,34 +30,16 @@ export default async function subscribeToNewsletter(prevState, formData) {
         return prevState;
     }
 
-    const result = newsletterSchema.safeParse(values);
-    if (!result.success) {
+    const validate = newsletterSchema.safeParse(values);
+    if (!validate.success) {
         return {
             values,
-            errors: z.flattenError(result.error).fieldErrors,
+            errors: z.flattenError(validate.error).fieldErrors,
         };
     }
 
-    const test = await fetchFromApi("/newsletter", values);
-    console.log("🔴", test)
+    const result = await fetchFromApi("/newsletter", values);
+    /* console.log("🔴", result) */
 
-    return test;
-
-   /*  const res = await fetch(`http://localhost:4000/api/v1${endpoint}`, {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(values),
-    });
-
-    console.log(res) */
-
-    /* if (!res.ok) {
-        return {
-            values,
-            errors: { form: ["Wrong email or password"] },
-        };
-    }
-
-    const data = await res.json();
-    return data; */
+    return result;
 }

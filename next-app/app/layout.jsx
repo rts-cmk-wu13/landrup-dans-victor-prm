@@ -1,5 +1,4 @@
-import LandingFooter from "./_components/landing-page/lp-footer";
-import LandingHero from "./_components/landing-page/lp-hero";
+import { ToastContainer } from "react-toastify";
 
 import { Genos, Ubuntu, Red_Hat_Text } from "next/font/google";
 import "./globals.css";
@@ -31,6 +30,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${genos.variable} ${font_ubuntu.variable} ${red_had_text.variable} antialiased w-full`}
       >
+        <ToastContainer hideProgressBar={true} pauseOnHover={false} autoClose={false} closeButton={false} />
         {children}
       </body>
     </html>
