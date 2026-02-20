@@ -85,13 +85,16 @@
   }
 
   .cust-input {
-    @apply rounded-2xl font-medium ring ring-dance-e9/7.5 bg-dance-e9 placeholder:text-dance-99 p-3 text-dance-drk h-12
+    @apply rounded-2xl font-medium ring ring-dance-e9/7.5 bg-dance-e9 placeholder:text-dance-6f p-3 text-dance-drk h-12
   }
 
   .cust-body-text {
     @apply font-redhat opacity-90 leading-snug
   }
 
+  .cust-form {
+    @apply flex gap-5 w-full max-w-160 sm:max-w-125
+  }
 
 }
 
