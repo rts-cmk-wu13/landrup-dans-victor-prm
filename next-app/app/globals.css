@@ -96,9 +96,27 @@
     @apply flex gap-5 w-full max-w-160 sm:max-w-125
   }
 
+  .cust-grid-stack{
+    @apply grid *:col-start-1 *:row-start-1
+  }
+
 }
 
 body {
   /* background: #9c0944; */
   font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Toastify custom styles */
+.Toastify__toast-container--top-right{
+   @apply top-3 right-3
+}
+
+.Toastify__toast {
+  @apply bg-dance-ff/50 backdrop-blur-3xl font-ubuntu rounded-[2rem_2rem_1px_2rem] ring ring-dance-e9/7.5 text-base p-3 mb-3 text-dance-drk min-h-12;
+}
+
+.Toastify__toast-icon {
+  @apply bg-dance-ff rounded-4xl ring ring-dance-ff
 }
