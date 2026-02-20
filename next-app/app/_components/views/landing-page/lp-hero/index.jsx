@@ -3,7 +3,7 @@ import HeroBG from "@/app/_assets/img/heroimg.jpg"
 import CompanyLogo from "@/app/_components/company-logo"
 import { FaAngleDoubleDown } from "react-icons/fa";
 import Link from "next/link"
-import CompanyLogoFull from "../../company-logo/company-logo-full";
+import CompanyLogoFull from "../../../company-logo/company-logo-full";
 
 export default function LandingHero() {
     return (
@@ -36,7 +36,7 @@ export default function LandingHero() {
             <CompanyLogoFull />
 
             <div className="w-full flex flex-col gap-8 items-center self-end mb-8 z-10">
-                <Link href="login" className="cust-container cust-button cust-acc-gradient text-dance-reg p-2 min-w-40">Log ind her</Link>
+                <Link href="/auth/login" className="cust-container cust-button cust-acc-gradient text-dance-reg p-2 min-w-40">Log ind her</Link>
                 {/* Next Link doesnt seem to work here? */}
                 <a href="#main" className="px-12"><FaAngleDoubleDown className="size-8 text-dance-acc animate-bounce" /></a>
             </div>

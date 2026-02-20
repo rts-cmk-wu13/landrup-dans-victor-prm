@@ -2,7 +2,7 @@ import CompanyLogo from ".."
 
 export default function CompanyLogoFull() {
     return (
-        <div className="w-full flex flex-col gap-8 items-center mt-8 z-10 overflow-clip">
+        <div className="w-full flex flex-col gap-8 items-center mt-8 z-10 overflow-clip pb-3">
             <CompanyLogo twclass="animate-fade-in-scale" />
             <div className="relative">
                 <h1 className="flex flex-col items-end text-dance-e9 font-genos text-5xl font-bold italic uppercase leading-[66%]">
