@@ -6,11 +6,17 @@ import InputField from "@/app/_components/input-field"
 import { useActionState, useEffect } from "react"
 import subscribeToNewsletter from "./action"
 import { toast } from "react-toastify";
-import ToastMessage from "@/app/_components/toast-message"
+
+const initialState = {
+    values: {
+        email: "urs@mail.dk",
+    },
+    errors: undefined
+}
 
 
 export default function LandingNewsletter() {
-    const [state, formAction, isPending] = useActionState(subscribeToNewsletter, {});
+    const [state, formAction, isPending] = useActionState(subscribeToNewsletter, initialState);
     /* console.log("Errors", state.errors) */
 
     useEffect(() => {

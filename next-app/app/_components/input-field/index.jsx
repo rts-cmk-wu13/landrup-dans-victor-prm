@@ -32,9 +32,10 @@ export default function InputField({ type, name, label, value, defaultValue, err
                                 name={name}
                                 id={name}
                                 placeholder={label}
+                                value={value} defaultValue={defaultValue}
                                 className="cust-body-text cust-input block w-full h-60 placeholder:capitalize"
                             ></textarea>
-                           {errors && <ErrorMessage msg={errors[0]} />}
+                            {errors && <ErrorMessage msg={errors[0]} />}
                         </label>
                     )
             }

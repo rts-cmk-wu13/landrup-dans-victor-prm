@@ -1,19 +1,12 @@
 "use server"
 import z from "zod";
-import { fetchFromApi } from "@/app/_lib/dal";
-import { toast } from "react-toastify";
+import { postToNewsletter } from "@/app/_lib/dal";
 
 //To-do: check if user is logged in, and already signed up
 
 const newsletterSchema = z.object({
-    email: z
-        .email({ message: "Type a valid email" })
-        .refine(v => v.length > 0, {
-            message: "Email is required",
-        }),
+    email: z.email({ message: "Email ikke gyldig" }),
 });
-
-
 
 export default async function subscribeToNewsletter(prevState, formData) {
     //Create values to not manually type email again all the time
@@ -21,8 +14,8 @@ export default async function subscribeToNewsletter(prevState, formData) {
         email: formData.get("email"),
     };
 
-
-    console.log(values)
+    /* console.log("🔴", values)
+    console.log("🟠", prevState?.values) */
 
     if (
         prevState?.values?.email === values.email
@@ -38,8 +31,8 @@ export default async function subscribeToNewsletter(prevState, formData) {
         };
     }
 
-    const result = await fetchFromApi("/newsletter", values);
-    /* console.log("🔴", result) */
+    const result = await postToNewsletter(values);
+    console.log("🟢", result)
 
     return result;
 }

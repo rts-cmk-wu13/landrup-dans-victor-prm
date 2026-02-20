@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${genos.variable} ${font_ubuntu.variable} ${red_had_text.variable} antialiased w-full`}
       >
-        <ToastContainer hideProgressBar={true} pauseOnHover={false} autoClose={false} closeButton={false} />
+        <ToastContainer hideProgressBar={true} pauseOnHover={false} autoClose={3000} closeButton={false} />
         {children}
       </body>
     </html>
