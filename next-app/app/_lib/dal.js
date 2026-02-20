@@ -1,38 +1,12 @@
 "use server"
 import { cookies } from "next/headers"
 import { redirect } from "next/navigation";
+import z from "zod";
 
-/* export async function fetchFromApi(endpoint, values) {
-    const res = await fetch(`http://localhost:4000/api/v1${endpoint}`, {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(values),
-    });
+import { newsletterSchema } from "./schemas";
+import { contactSchema } from "./schemas";
 
-    if (!res.ok) {
-        return {
-            values,
-            errors: { form: ["Wrong email or password"] },
-        };
-    }
-
-    const data = await res.json();
-    return data;
-}
- */
-
-/* export async function fetchFromApi(fMethod, endpoint, values) {
-    const res = await fetch(`http://localhost:4000/api/v1${endpoint}`, {
-        method: fMethod,
-        headers: { "content-type": "application/json" },
-        ...(fMethod === "POST" && { body: JSON.stringify(values) })
-    });
-
-    const data = await res.json();
-    return data;
-} */
-
-
+/* --- GENERAL FETCH --- */
 export async function fetchFromAPI(fMethod, endpoint, values, secured = false) {
     if (secured) {
         //Second line of defense (apart from proxy)
@@ -53,7 +27,7 @@ export async function fetchFromAPI(fMethod, endpoint, values, secured = false) {
         /* return {
             values,
             errors: { form: ["Wrong email or password"] },
-        }; */ 
+        }; */
     }
     const data = await response.json();
 
@@ -62,12 +36,31 @@ export async function fetchFromAPI(fMethod, endpoint, values, secured = false) {
     return data;
 }
 
-
-
+/* --- POST: NEWSLETTER + VALIDATION --- */
 export async function postToNewsletter(values) {
+    const validate = newsletterSchema.safeParse(values);
+
+    console.log("😬", validate.success)
+    if (!validate.success) {
+        return {
+            values,
+            errors: z.flattenError(validate.error).fieldErrors,
+        };
+    }
+
     return await fetchFromAPI("POST", "/newsletter", values)
 }
 
+/* --- POST: MESSAGES + VALIDATION --- */
 export async function postToMessages(values) {
+    const validate = contactSchema.safeParse(values);
+
+    if (!validate.success) {
+        return {
+            values,
+            errors: z.flattenError(validate.error).fieldErrors,
+        };
+    }
+
     return await fetchFromAPI("POST", "/messages", values)
 }
