@@ -1,27 +1,41 @@
-export default function InputField({ type, name, label, value }) {
+export default function InputField({ type, name, label, value, defaultValue, errors }) {
+    //Guard Clauses
     if (!name) throw new Error("Missing name or type")
     if (!type) throw new Error("Missing type or type")
+
+    console.log(errors)
+
+    const ErrorMessage = ({ msg, abs = true }) => {
+        return (
+            <strong className={`${abs ? "absolute -top-2 right-0" : ""}  px-2 py-1 rounded-xl text-dance-e9 border border-red-500 font-semibold bg-red-500/50 backdrop-blur-xs min-w-30`}>{msg}</strong>
+        )
+    }
+
 
     return (
         <>
             {
                 type !== "textarea" ?
                     (
-                        <>
-                            <label className="flex sr-only" htmlFor={name}>{label}</label>
-                            <input className="cust-body-text cust-input w-full placeholder:capitalize" type={type} name={name} id={name} placeholder={label} value={value} />
-                        </>
+
+                        <label className="relative" htmlFor={name}>
+                            <span className="sr-only">{label}</span>
+                            <input className="cust-body-text cust-input w-full placeholder:capitalize" type={type} name={name} id={name} placeholder={label} value={value} defaultValue={defaultValue} />
+                            {errors && <ErrorMessage msg={errors[0]} />}
+                        </label>
+
                     )
                     : (
-                        <>
-                            <label className="flex sr-only" htmlFor={name}>{label}</label>
+                        <label className="relative" htmlFor={name}>
+                            <span className="sr-only">{label}</span>
                             <textarea
                                 name={name}
                                 id={name}
                                 placeholder={label}
-                                className="cust-body-text cust-input w-full h-60 placeholder:capitalize"
+                                className="cust-body-text cust-input block w-full h-60 placeholder:capitalize"
                             ></textarea>
-                        </>
+                           {errors && <ErrorMessage msg={errors[0]} />}
+                        </label>
                     )
             }
         </>
