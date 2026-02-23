@@ -4,6 +4,7 @@ import Image from "next/image";
 import ButtonPrimary from "@/app/_components/button-primary";
 import { useEffect } from "react";
 import { fetchFromAPI } from "@/app/_lib/dal";
+import { useProfileContext } from "@/app/_contexts/user-context";
 
 export default function DetailsHero({ activityID, img }) {
     //const [event, setEvent] = useEffect([])
@@ -18,6 +19,9 @@ export default function DetailsHero({ activityID, img }) {
     const handleClick = () => {
         console.log(activityID)
     }
+
+    const profile = useProfileContext();
+    console.log(profile)
 
     return (
         <div className="cust-grid-stack -mx-3">
