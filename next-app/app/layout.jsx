@@ -26,7 +26,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="cust-bg-gradient scroll-smooth min-h-screen">
+    <html lang="en" data-scroll-behavior="smooth" className="cust-bg-gradient scroll-smooth min-h-screen">
       <body
         className={`${genos.variable} ${font_ubuntu.variable} ${red_had_text.variable} antialiased w-full`}
         

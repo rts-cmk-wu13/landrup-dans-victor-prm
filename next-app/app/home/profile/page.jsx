@@ -1,5 +1,8 @@
 "use client"
 import { useProfileContext } from "@/app/_contexts/user-context"
+import LogoutForm from "./logout-form";
+
+
 
 export default function Page() {
     const { firstname, lastname } = useProfileContext();
@@ -11,6 +14,7 @@ export default function Page() {
         <div>
             <h1>Profile</h1>
             <p>Hello {name}</p>
+            <LogoutForm />
         </div>
 
     )

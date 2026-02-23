@@ -1,5 +1,5 @@
 import LandingSection from "@/app/_components/views/landing-page/lp-section";
-import LoginForm from "./LoginForm";
+import LoginForm from "./login-form";
 import { getSession } from "@/app/_lib/dal";
 import { redirect } from "next/navigation";
 

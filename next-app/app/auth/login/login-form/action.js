@@ -13,6 +13,7 @@ export default async function logUserIn(prevState, formData) {
     const values = {
         username: formData.get("username"),
         password: formData.get("password"),
+        remember: formData.get("remember"),
     };
 
     compareFormData(values, prevState);
@@ -26,19 +27,21 @@ export default async function logUserIn(prevState, formData) {
         };
     }
 
+    console.log("✅ validated")
+
     const result = await fetchFromAPI("POST", "/auth/token", values)
     console.log("🟢", result)
 
     //Remember user if user checks checkbox, otherwise cookie will default as session cookie
-    if (formData.get("remember") === "save") {
-        const days = (n) => n * 24 * 60 * 60 * 1000;
-        cookieStore.set("landrup-access-token", result.token, { expires: result.validUntil + days(7) });
-        cookieStore.set("landrup-user-id", result.userId, { expires: result.validUntil + days(7) });
+    if (values.remember === "save") {
+        /*  const days = (n) => n * 24 * 60 * 60 * 1000; */
+        cookieStore.set("landrup-access-token", result.token, { expires: result.validUntil });
+        cookieStore.set("landrup-user-id", result.userId, { expires: result.validUntil });
     } else {
         cookieStore.set("landrup-access-token", result.token);
         cookieStore.set("landrup-user-id", result.userId);
     }
 
 
-    return redirect("/home");
+    return redirect("/home/profile");
 }
