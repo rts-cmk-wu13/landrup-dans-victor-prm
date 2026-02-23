@@ -29,7 +29,13 @@ export default async function logUserIn(prevState, formData) {
     const result = await fetchFromAPI("POST", "/auth/token", values)
     console.log("🟢", result)
 
-    cookieStore.set("landrup-access-token", result.token);
+    //Remember user if user checks checkbox, otherwise cookie will default as session cookie
+    if (formData.get("remember") === "save") {
+        const days = (n) => n * 24 * 60 * 60 * 1000;
+        cookieStore.set("landrup-access-token", result.token, { expires: result.validUntil + days(7)});
+    } else {
+        cookieStore.set("landrup-access-token", result.token);
+    }
 
     return redirect("/home");
 }

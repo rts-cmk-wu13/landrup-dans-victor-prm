@@ -5,7 +5,10 @@ export const loginSchema = z.object({
     username: z
         .string({ message: "Type a valid email" }),
     password: z
-        .string({ message: "Type a valid email" })
+        .string({ message: "Type a valid email" }),
+    remember: z
+        .string()
+        .optional()
 });
 
 

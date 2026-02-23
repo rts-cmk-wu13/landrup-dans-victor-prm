@@ -1,4 +1,4 @@
-export default function InputField({ type, name, label, value, defaultValue, errors }) {
+export default function InputField({ type, name, label, value, defaultValue, errors, className }) {
     //Guard Clauses
     if (!name) throw new Error("Missing name or type")
     if (!type) throw new Error("Missing type or type")
@@ -19,7 +19,7 @@ export default function InputField({ type, name, label, value, defaultValue, err
                     (
                         <label className="relative" htmlFor={name}>
                             <span className="sr-only">{label}</span>
-                            <input className="cust-body-text cust-input w-full placeholder:capitalize" type={type} name={name} id={name} placeholder={label} value={value} defaultValue={defaultValue} />
+                            <input  className={`cust-body-text cust-input w-full placeholder:capitalize ${className}`} type={type} name={name} id={name} placeholder={label} value={value} defaultValue={defaultValue} />
                             {errors && <ErrorMessage msg={errors[0]} />}
                         </label>
 
@@ -28,11 +28,13 @@ export default function InputField({ type, name, label, value, defaultValue, err
                         <label className="relative" htmlFor={name}>
                             <span className="sr-only">{label}</span>
                             <textarea
+                                
                                 name={name}
                                 id={name}
                                 placeholder={label}
                                 value={value} defaultValue={defaultValue}
-                                className="cust-body-text cust-input block w-full h-60 placeholder:capitalize"
+
+                                className={`cust-body-text cust-input block w-full h-60 placeholder:capitalize ${className}`}
                             ></textarea>
                             {errors && <ErrorMessage msg={errors[0]} />}
                         </label>

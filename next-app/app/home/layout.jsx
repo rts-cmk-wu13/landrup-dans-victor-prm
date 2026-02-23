@@ -1,20 +1,19 @@
 import { ToastContainer } from "react-toastify";
 import PageContainer from "../_components/page-container";
 
-import AuthHeader from "../_components/views/auth-page/auth-header";
-import Link from "next/link";
+import HomeHeader from "../_components/views/home/home-header";
+import HomeFooter from "../_components/views/home/home-footer";
 
 
 export default function HomeLayout({ children }) {
   return (
     <PageContainer >
-      <header className="text-white">Header</header>
+      <HomeHeader />
       <main id="main" className="grow px-3">
         {children}
       </main>
-      <footer className="text-white">Footer</footer>
+      <HomeFooter />
     </PageContainer>
-
   );
 }
 

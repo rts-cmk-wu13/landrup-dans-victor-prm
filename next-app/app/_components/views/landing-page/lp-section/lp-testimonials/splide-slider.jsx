@@ -30,7 +30,7 @@ export default function SplideSlider({ slides }) {
                 {slides.map(testimonial => {
                     return (
                         <SplideSlide key={testimonial.id} className="flex items-center justify-center">
-                            <div className="flex flex-col items-end max-w-125 font-ubuntu bg-dance-drk/75 cust-shape p-6 backdrop-blur-xl">
+                            <div  className="flex flex-col items-end max-w-125 font-ubuntu bg-dance-drk/75 cust-shape p-6 backdrop-blur-xl">
                                 <blockquote className='cust-body-text italic'><FaQuoteLeft className='float-left mr-4 size-8 text-dance-bri' />{testimonial.content}<FaQuoteRight className="float-end m-2 size-8 text-dance-bri" /></blockquote>
                                 <address className="text-xl not-italic">{testimonial.name}</address>
                                 <small className='opacity-70'>{testimonial.occupation}</small>
@@ -48,8 +48,8 @@ export default function SplideSlider({ slides }) {
             </div>
 
             {/* Custom slider progress bard */}
-            <div className="splide__progress absolute w-16 left-1/2 -translate-x-1/2 bg-dance-e9/25 bottom-20">
-                <div className="splide__progress__bar rounded bg-dance-e9!"></div>
+            <div  className="splide__progress absolute w-16 left-1/2 -translate-x-1/2 bg-dance-e9/25 bottom-20">
+                <div  className="splide__progress__bar rounded bg-dance-e9!"></div>
             </div>
         </Splide>
 

@@ -30,3 +30,14 @@ export async function fetchFromAPI(fMethod, endpoint, values, secured = false) {
 
     return data;
 }
+
+export async function getSession() {
+  const cookieStore = await cookies()
+  const token = cookieStore.get("landrup-access-token")
+  console.log("🔴",token)
+  if (!token) {
+    return null
+  }
+  // verify token logic here
+  return { user: "Chandan" }
+}

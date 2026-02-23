@@ -11,7 +11,7 @@ export default async function LandingTestimonials() {
 
     return (
         <LandingSection>
-            <figure className="grid *:col-start-1 *:row-start-1 my-8">
+            <figure className="cust-grid-stack  my-8">
                 <Image
                     src={HeroBG}
                     alt="Landrup Dans Logo"
