@@ -1,3 +1,25 @@
+import { FaHome } from "react-icons/fa"
+import { FaList } from "react-icons/fa"
+import { FaUser } from "react-icons/fa"
+
+export const footerLinks = [
+    {
+        title: "Forside",
+        href: "/",
+        icon: FaHome
+    },
+    {
+        title: "Aktiviteter",
+        href: "/home/activities",
+        icon: FaList
+    },
+    {
+        title: "Profil",
+        href: "/home/profile",
+        icon: FaUser
+    }
+]
+
 export const danceClasses = [
     {
         title: "Børnehold",

@@ -2,8 +2,8 @@ import z from "zod";
 import { isEqual } from "lodash";
 
 export function compareFormData(values, prevState) {
-    /* console.log("🔴", values)
-    console.log("🟠", prevState?.values) */
+    console.log("🔴", values)
+    console.log("🟠", prevState?.values)
 
     /* console.log(schema) */
     const sameAsBefore = isEqual(values, prevState?.values);

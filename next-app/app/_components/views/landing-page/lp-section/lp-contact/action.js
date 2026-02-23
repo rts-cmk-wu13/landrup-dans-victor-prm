@@ -1,10 +1,11 @@
 "use server"
-import { postToMessages } from "@/app/_lib/dal";
+import z from "zod";
 import { compareFormData } from "@/app/_utils/helpers";
-
+import { contactSchema } from "@/app/_lib/schemas";
+import { fetchFromAPI } from "@/app/_lib/dal";
 
 export default async function sendMessage(prevState, formData) {
-    //Create values to not manually type email again all the time
+   
     const values = {
         name: formData.get("name"),
         email: formData.get("email"),
@@ -13,8 +14,17 @@ export default async function sendMessage(prevState, formData) {
 
     compareFormData(values, prevState);
 
-    //Data is validated in dal.js
-    const result = await postToMessages(values);
+
+    const validate = contactSchema.safeParse(values);
+    
+        if (!validate.success) {
+            return {
+                values,
+                errors: z.flattenError(validate.error).fieldErrors,
+            };
+        }
+    
+    const result = fetchFromAPI("POST", "/api/v1/messages", values)
     console.log("🟢", result)
 
     return result;

@@ -1,7 +1,7 @@
 "use client"
 
 import LandingSection from ".."
-import InputField from "@/app/_components/input-field"
+import InputField from "@/app/_components/input-field";
 import sendMessage from "./action";
 import { useActionState } from "react";
 import { useEffect } from "react";

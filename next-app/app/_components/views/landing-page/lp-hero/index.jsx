@@ -1,9 +1,8 @@
 import Image from "next/image"
 import HeroBG from "@/app/_assets/img/heroimg.jpg"
-import CompanyLogo from "@/app/_components/company-logo"
 import { FaAngleDoubleDown } from "react-icons/fa";
 import Link from "next/link"
-import CompanyLogoFull from "../../../company-logo/company-logo-full";
+import CompanyLogoFull from "@/app/_components/company-logo/company-logo-full";
 
 export default function LandingHero() {
     return (
