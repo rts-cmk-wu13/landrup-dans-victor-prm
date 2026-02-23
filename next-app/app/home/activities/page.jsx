@@ -1,22 +1,23 @@
 import LandingSection from "@/app/_components/views/landing-page/lp-section"
 import ActivityCard from "@/app/_components/activity-card";
+import { fetchFromAPI } from "@/app/_lib/dal";
+import { formattedMaxAge } from "@/app/_utils/helpers";
 
 export default async function Page() {
-    const data = await fetch("http://localhost:4000/api/v1/activities")
-    const activities = await data.json();
+    const data = await fetchFromAPI("GET", "/api/v1/activities")
+    const activities = await data;
 
     return (
         <LandingSection title="Activities">
             <ul className="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-4 gap-y-12">
                 {
                     activities.map((act, _i) => {
-                        const formattedMaxAge = act.maxAge > 75 ? "+" : `-${act.maxAge}`
-                        const subtitle = `${act.weekday} ${act.time} | ${act.minAge}${formattedMaxAge} år`
-                       
+                        const subtitle = `${act.weekday} ${act.time} | ${act.minAge}${formattedMaxAge(act.maxAge)} år`
 
-                        console.log(act.asset.url)
+
+                        console.log(act)
                         return (
-                            <ActivityCard key={_i} title={act.name} subtitle={subtitle} img={act.asset.url} />
+                            <ActivityCard key={_i} title={act.name} subtitle={subtitle} img={act.asset.url} href={`/home/activities/${act.id}`} />
                         )
                     })
                 }

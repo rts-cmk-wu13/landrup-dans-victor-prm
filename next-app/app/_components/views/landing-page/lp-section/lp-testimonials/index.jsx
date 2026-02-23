@@ -3,11 +3,12 @@ import LandingSection from '..';
 import SplideSlider from './splide-slider';
 import HeroBG from "@/app/_assets/img/heroimg.jpg"
 import Image from 'next/image';
+import { fetchFromAPI } from '@/app/_lib/dal';
 
 
 export default async function LandingTestimonials() {
-    const data = await fetch("http://localhost:4000/api/v1/testimonials")
-    const testimonials = await data.json();
+    const data = await fetchFromAPI("GET", "/api/v1/testimonials")
+    const testimonials = await data;
 
     return (
         <LandingSection>
@@ -21,7 +22,7 @@ export default async function LandingTestimonials() {
                     priority
                 />
                 <h2 className='font-ubuntu text-2xl font-medium max-w-60 text-center mx-auto mt-8 z-10 h-fit'>Det siger vores kunder om os</h2>
-                <SplideSlider slides={testimonials}/>
+                <SplideSlider slides={testimonials} />
             </figure>
         </LandingSection>
     )
