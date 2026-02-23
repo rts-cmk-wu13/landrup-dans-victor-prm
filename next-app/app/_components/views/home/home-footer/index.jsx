@@ -5,7 +5,6 @@ import Link from "next/link"
 
 export default function HomeFooter() {
     const pathname = usePathname()
-    console.log(pathname)
 
     return (
         <footer className="bg-dance-e9 text-dance-6f py-2 rounded-[1rem_1rem_0_0]">
@@ -14,7 +13,7 @@ export default function HomeFooter() {
                     {footerLinks.map(link => {
                         const Icon = link.icon;
                         const current = pathname === link.href;
-                        console.log(current, link.href, pathname)
+                        //console.log(current, link.href, pathname)
 
                         return (
                             <li key={link.href}>

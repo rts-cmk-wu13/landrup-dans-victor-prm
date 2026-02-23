@@ -9,7 +9,6 @@ export default function HomeHeader() {
     const path = usePathname();
     const atActivities = path === ("/activities")
     const atDetails = path.includes("/activities/")
-    console.log(atDetails)
 
     return (
         <header className={`h-20 ${!atDetails ? "relative" : "absolute z-100 w-full"} `}>

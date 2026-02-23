@@ -5,7 +5,7 @@ export default function middleware(request) {
   const cookieStore = request.cookies;
 
   if (!cookieStore.has('landrup-access-token')) {
-    console.log("😬", "proxy hit")
+    /* console.log("😬", "proxy hit") */
     return NextResponse.redirect(new URL('/auth', request.url));
   }
 

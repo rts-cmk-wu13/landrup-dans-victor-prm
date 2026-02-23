@@ -13,9 +13,6 @@ export default async function Page() {
                 {
                     activities.map((act, _i) => {
                         const subtitle = `${act.weekday} ${act.time} | ${act.minAge}${formattedMaxAge(act.maxAge)} år`
-
-
-                        console.log(act)
                         return (
                             <ActivityCard key={_i} title={act.name} subtitle={subtitle} img={act.asset.url} href={`/home/activities/${act.id}`} />
                         )
