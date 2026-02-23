@@ -4,16 +4,22 @@ import { redirect } from "next/navigation";
 
 /* --- GENERAL FETCH --- */
 export async function fetchFromAPI(fMethod, endpoint, values, secured = false) {
+    const cookieStore = await cookies();
+
+    //Second line of defense (apart from proxy)
     if (secured) {
-        //Second line of defense (apart from proxy)
-        const cookieStore = await cookies();
         //Guard clause
-        if (!cookieStore.has("accessToken")) return redirect("/no-access");
+        if (!cookieStore.has("landrup-access-token")) return redirect("/auth");
     }
 
     const response = await fetch(`http://localhost:4000${endpoint}`, {
         method: fMethod,
-        headers: { "content-type": "application/json" },
+        headers: {
+            "content-type": "application/json",
+            ...(secured && {
+                authorization: `Bearer ${cookieStore.get("landrup-access-token")}`
+            })
+        },
         ...(fMethod === "POST" && { body: JSON.stringify(values) })
     });
 
@@ -32,12 +38,13 @@ export async function fetchFromAPI(fMethod, endpoint, values, secured = false) {
 }
 
 export async function getSession() {
-  const cookieStore = await cookies()
-  const token = cookieStore.get("landrup-access-token")
-  console.log("🔴",token)
-  if (!token) {
-    return null
-  }
-  // verify token logic here
-  return { user: "Chandan" }
+    const cookieStore = await cookies()
+    const token = cookieStore.get("landrup-access-token")
+    console.log("🔴", token)
+    if (!token) {
+        return null
+    }
+
+    // verify token logic here
+    return { user: "Chandan" }
 }
