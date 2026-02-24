@@ -7,8 +7,8 @@ import SearchBar from "./search-bar"
 
 export default function HomeHeader() {
     const path = usePathname();
-    const atActivities = path === ("/activities")
-    const atDetails = path.includes("/activities/")
+    const atActivities = path === ("/home/activities")
+    const atDetails = path.includes("/home/activities/")
 
     return (
         <header className={`h-20 ${!atDetails ? "relative" : "absolute z-100 w-full"} `}>

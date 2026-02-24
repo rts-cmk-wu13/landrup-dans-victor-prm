@@ -13,8 +13,14 @@ export default async function Page() {
     }
 
     return (
-        <LandingSection title="Log ind">
-           <LoginForm />
-        </LandingSection>
+        <>
+            {
+                session ? (null) : (
+                    <LandingSection title="Log ind">
+                        <LoginForm />
+                    </LandingSection>
+                )
+            }
+        </>
     )
 }

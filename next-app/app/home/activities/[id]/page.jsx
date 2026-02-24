@@ -1,6 +1,7 @@
 import { fetchFromAPI } from "@/app/_lib/dal";
 import { formattedMaxAge } from "@/app/_utils/helpers";
 import { capitalizeFirstLetter } from "@/app/_utils/helpers";
+import { formattedClassTime, formattedClassAge } from "@/app/_utils/helpers";
 
 import DetailsHero from "@/app/_components/views/home/details-hero";
 
@@ -14,15 +15,15 @@ export default async function Page({ params }) {
 
     const activity = await data;
     const img = activity.asset.url
-    const subtitle = `${capitalizeFirstLetter(activity.weekday)} ${activity.time} | ${activity.minAge}${formattedMaxAge(activity.maxAge)} år`
+    const subtitle = `${formattedClassTime(activity.weekday, activity.time)} | ${formattedClassAge(activity.minAge, activity.maxAge)} år`
     //console.log(activity)
 
     return (
 
-        <article className="w-full">
-            <DetailsHero 
-            img={img}
-            activityID={id}
+        <article className="w-full pb-20">
+            <DetailsHero
+                img={img}
+                activityID={id}
             />
             <div className="text-dance-e9 flex flex-col gap-2 px-5 pt-4 pb-20">
                 <hgroup className="font-ubuntu">

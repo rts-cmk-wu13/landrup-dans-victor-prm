@@ -19,6 +19,14 @@ export function capitalizeFirstLetter(txt) {
     return String(txt).charAt(0).toUpperCase() + String(txt).slice(1);
 }
 
+export function formattedClassTime(cday, ctime){
+    return `${capitalizeFirstLetter(cday)} ${ctime}`
+}
+
 export function formattedMaxAge(num) {
     return num > 75 ? "+" : `-${num}`
+}
+
+export function formattedClassAge(mina, maxa){
+    return `${mina}${formattedMaxAge(maxa)}`
 }

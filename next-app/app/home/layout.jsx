@@ -9,7 +9,7 @@ import UserContextProvider from "../_contexts/user-context";
 export default function HomeLayout({ children }) {
   return (
     <UserContextProvider>
-      <PageContainer >
+      <PageContainer className="gap-0!">
         <HomeHeader />
         <main id="main" className="grow px-3">
           {children}

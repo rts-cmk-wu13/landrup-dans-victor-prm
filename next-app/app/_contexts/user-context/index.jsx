@@ -1,6 +1,9 @@
 "use client"
 import { createContext, useContext } from "react";
 import { useState, useEffect } from "react";
+import { getSession } from "@/app/_lib/dal";
+
+import SpinningLoader from "@/app/_components/spinning-loader";
 
 export const ProfileContext = createContext(null)
 
@@ -9,21 +12,19 @@ export default function ProfileContextProvider({ children }) {
     const [data, setData] = useState("test")
     const [isLoading, setLoading] = useState(true)
 
-    /* useEffect(() => {
-        fetch(`http://localhost:4000/api/v1/users/7`, {
-            headers: {
-                Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjo3LCJ1c2VybmFtZSI6InVzZXIzIiwicGFzc3dvcmQiOiIkMmEkMTUkT01EVS44ZXRSaGY1N2ZEbVJudS9JdWhpbk5NUUpsSjh1amRVSm94RzRKWXZwdFVMNFdDZW0iLCJmaXJzdG5hbWUiOiJNYXJ0aW4iLCJsYXN0bmFtZSI6IlBvdWxzZW4iLCJhZ2UiOjIxLCJyb2xlIjoiZGVmYXVsdCIsImNyZWF0ZWRBdCI6IjIwMjEtMDktMjNUMDg6MTQ6MzAuNDA2WiIsInVwZGF0ZWRBdCI6IjIwMjEtMDktMjNUMDg6MTQ6MzAuNDA2WiJ9LCJpYXQiOjE3NzE4NTMyNTUsImV4cCI6MTc3MTg1Njg1NX0.T8qeX5M8_LbLOd7LQGKpH8XjheFiX_ZS3ZCpBKVRDQQ`
-            }
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                setData(data)
-                setLoading(false)
-            })
+    useEffect(() => {
+        async function fetchSession() {
+            const data = await getSession();
+            setData(await data)
+            setLoading(false)
+        }
+        fetchSession();
     }, [])
 
-    if (isLoading) return <p>Loading...</p>
-    if (!data) return <p>No profile data</p> */
+    if (isLoading) return (
+        <SpinningLoader />
+    )
+    if (!data) return <p>No profile data</p>
 
     return (
         <ProfileContext.Provider
