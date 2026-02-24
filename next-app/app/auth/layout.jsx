@@ -12,7 +12,6 @@ export default function AuthLayout({ children }) {
       <main id="main" className="grow px-3">
         {children}
       </main>
-      <footer><p>Ingen konto endnu? <Link href="auth/login"></Link></p></footer>
     </PageContainer>
 
   );
