@@ -14,18 +14,36 @@ export default function ActivityList({ activities }) {
 
     return (
         <ul className="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-4 gap-y-12">
-            {filtered.map((act, _i) => {
-                const subtitle = `${formattedClassTime(act.weekday, act.time)} | ${formattedClassAge(act.minAge, act.maxAge)} år`;
-                return (
-                    <ActivityCard
-                        key={_i}
-                        title={act.name}
-                        subtitle={subtitle}
-                        img={act.asset.url}
-                        href={`/home/activities/${act.id}`}
-                    />
-                );
-            })}
+            {filtered.length ? (
+                filtered.map((act, _i) => {
+                    const subtitle = `${formattedClassTime(act.weekday, act.time)} | ${formattedClassAge(act.minAge, act.maxAge)} år`;
+                    return (
+                        <ActivityCard
+                            key={_i}
+                            title={act.name}
+                            subtitle={subtitle}
+                            img={act.asset.url}
+                            href={`/home/activities/${act.id}`}
+                        />
+                    );
+                })
+            ) : (
+                <div className="text-dance-e9 font-redhat">
+                    <p >Der blev ikke fundet nogle aktiviteter. </p>
+                    <p >Prøv at søge efter noget andet.</p>
+                </div>
+            )}
         </ul>
     );
 }
+
+
+
+
+
+
+
+
+
+
+
