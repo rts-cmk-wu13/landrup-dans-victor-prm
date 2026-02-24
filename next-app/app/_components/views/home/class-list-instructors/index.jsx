@@ -3,15 +3,16 @@ import SpinningLoader from "@/app/_components/spinning-loader";
 import { useState, useEffect } from "react";
 import { formattedClassTime, formattedClassAge } from "@/app/_utils/helpers";
 import ClassCard from "../class-card";
+import Link from "next/link";
 
-export default function ClassListInstructors() {
+export default function ClassListInstructors({insId}) {
     const [activities, setActivities] = useState()
     const [isLoading, setLoading] = useState(true)
 
     useEffect(() => {
         async function fetchInstructorActivities() {
             const data = await fetchFromAPI("GET", "/api/v1/activities")
-            const filteredData = await data.filter(act => act.instructorId === 2)
+            const filteredData = await data.filter(act => act.instructorId === insId)
             setActivities(filteredData)
             setLoading(false)
         }
@@ -28,7 +29,7 @@ export default function ClassListInstructors() {
     return (
         <>
             <h2 className="text-2xl font-ubuntu font-medium ">Mine hold</h2>
-            {activities ? (
+            {activities.length ? (
                 <ul className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-4 gap-y-12">
                     {
                         activities.map((act) => {
@@ -50,8 +51,7 @@ export default function ClassListInstructors() {
                 </ul>
             ) : (
                 <div className="cust-body-text">
-                    <p>Du er ikke tilmeldt nogen hold</p>
-                    <Link className="text-dance-acc cursor-pointer inline-flex gap-2 items-center hover:opacity-70" href={"/home/activities"}>Se tilgængelige hold <FaArrowRight /></Link>
+                    <p>Du har ikke igangværende nogen hold</p>
                 </div>
             )}
         </>

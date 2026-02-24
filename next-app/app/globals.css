@@ -97,7 +97,7 @@
     @apply flex gap-5 w-full max-w-160 sm:max-w-125
   }
 
-  .cust-grid-stack{
+  .cust-grid-stack {
     @apply grid *:col-start-1 *:row-start-1
   }
 
@@ -110,8 +110,8 @@ body {
 
 
 /* Toastify custom styles */
-.Toastify__toast-container--top-right{
-   @apply top-3 right-3
+.Toastify__toast-container--top-right {
+  @apply top-3 right-3
 }
 
 .Toastify__toast {
@@ -125,4 +125,19 @@ body {
 
 [type='checkbox']:checked {
   background-image: url('data:image/svg+xml,<svg viewBox="0 0 16 16" fill="%2300111a" xmlns="http://www.w3.org/2000/svg"><path d="M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z"/></svg>');
+}
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html,
+body {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }

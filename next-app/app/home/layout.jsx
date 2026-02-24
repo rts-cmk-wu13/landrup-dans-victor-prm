@@ -5,17 +5,20 @@ import HomeHeader from "../_components/views/home/home-header";
 import HomeFooter from "../_components/views/home/home-footer";
 
 import UserContextProvider from "../_contexts/user-context";
+import SearchContextProvider from "../_contexts/search-context";
 
 export default function HomeLayout({ children }) {
   return (
     <UserContextProvider>
-      <PageContainer className="gap-0!">
-        <HomeHeader />
-        <main id="main" className="grow px-3">
-          {children}
-        </main>
-        <HomeFooter />
-      </PageContainer>
+      <SearchContextProvider>
+        <PageContainer className="gap-0!">
+          <HomeHeader />
+          <main id="main" className="grow px-3">
+            {children}
+          </main>
+          <HomeFooter />
+        </PageContainer>
+      </SearchContextProvider>
     </UserContextProvider>
   );
 }
