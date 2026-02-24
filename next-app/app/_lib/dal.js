@@ -11,7 +11,7 @@ export async function fetchFromAPI(fMethod, endpoint, values, secured = false) {
     if (secured) {
         //Guard clause
 
-        if (!cookieStore.has("landrup-access-token")){
+        if (!cookieStore.has("landrup-access-token")) {
             console.warn("🟠 No active token! Redirecting")
             return redirect("/auth");
         }
@@ -28,18 +28,26 @@ export async function fetchFromAPI(fMethod, endpoint, values, secured = false) {
         ...((fMethod === "POST" && values) && { body: JSON.stringify(values) })
     });
 
+    console.log(response)
+
     if (!response.ok) {
-        throw new Error("🤦‍♂️ Something went wrong on our end!")
-        /* return {
-            values,
-            errors: { form: ["Wrong email or password"] },
-        }; */
+        const text = await response.text();
+        throw new Error(text || "Request failed");
     }
-    const data = await response.json();
 
-    /* console.log(data) */
+    // If there's no content, don't try to parse JSON
+    const contentLength = response.headers.get("content-length");
+    if (response.status === 204 || contentLength === "0") {
+        return { success: true };
+    }
 
-    return data;
+    // Some APIs return 200 but empty body
+    const text = await response.text();
+    if (!text) {
+        return { success: true };
+    }
+
+    return JSON.parse(text);
 }
 
 export async function getSession() {
