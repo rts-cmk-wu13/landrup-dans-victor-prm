@@ -4,6 +4,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { FaChevronLeft } from "react-icons/fa"
 import SearchBar from "./search-bar"
+import { setPageTitle } from "@/app/_utils/helpers-client"
 
 export default function HomeHeader() {
     const path = usePathname();
@@ -15,13 +16,13 @@ export default function HomeHeader() {
             <div className="absolute w-full cust-grid-stack text-white items-center h-full px-6">
                 {
                     atDetails && (
-                        <Link href={"/home/activities"}>
+                        <Link className="rounded-4xl bg-dance-drk/50 backdrop-blur-2xl size-fit p-2" href={"/home/activities"}>
                             <FaChevronLeft />
                         </Link>
                     )
                 }
 
-                <h1 className="justify-self-center text-2xl font-ubuntu">Page Title</h1>
+                <h1 className="justify-self-center text-2xl font-ubuntu text-shadow-md text-shadow-dance-00/50">{setPageTitle()}</h1>
                 {
                     atActivities && (
                         <SearchBar />

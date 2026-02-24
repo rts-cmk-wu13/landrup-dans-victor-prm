@@ -3,17 +3,16 @@ import { useState } from "react"
 import { IoSearch } from "react-icons/io5";
 
 import { IoClose } from "react-icons/io5";
-
+import { useSearchContext } from "@/app/_contexts/search-context";
 
 export default function SearchBar() {
     const [isOpen, setIsOpen] = useState(false)
+    const { search, setSearch } = useSearchContext();
+
 
     const toggle = () => {
         setIsOpen(!isOpen)
-        console.log(isOpen)
     }
-
-
 
     return (
         <label className={`h-fit cust-grid-stack justify-self-end items-center ${isOpen ? "w-full max-w-100" : ""}`} htmlFor="search">
@@ -25,11 +24,13 @@ export default function SearchBar() {
             </button>
 
             <input
+                value={search}
+                onChange={e => setSearch(e.target.value)}
                 type="text"
                 name="search"
                 id="search"
                 className={
-                    `cust-body-text cust-input bg-dance-e9/30 backdrop-blur-md rounded-[1rem_1rem_1px_1rem]
+                    `cust-body-text cust-input bg-dance-e9/30 backdrop-blur-md rounded-[1rem_1rem_1px_1rem] font-semibold text-dance-ff
                      justify-self-end transition ${isOpen ? "w-full opacity-100 duration-300" : "w-0 px-0 opacity-0 duration-0"}`} />
 
         </label>

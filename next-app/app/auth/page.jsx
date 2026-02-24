@@ -15,7 +15,7 @@ export default async function Page() {
             <p className="cust-body-text">Du prøver at tilgå en side, hvor man skal være logget ind.</p>
             <div className="flex gap-20 justify-between mt-8">
                 <Link className="cust-container cust-button cust-acc-gradient text-dance-reg p-2 min-w-40" href={"/auth/login"}>Log ind</Link>
-                <Link className="cust-container cust-button cust-acc-gradient text-dance-reg p-2 min-w-40" href={"/auth/signup"}>Opret Bruger</Link>
+                {/* <Link className="cust-container cust-button cust-acc-gradient text-dance-reg p-2 min-w-40" href={"/auth/signup"}>Opret Bruger</Link> */}
             </div>
         </LandingSection>
     )

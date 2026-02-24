@@ -7,21 +7,19 @@ import ClassListMembers from "@/app/_components/views/home/class-list-members";
 import ClassListInstructors from "@/app/_components/views/home/class-list-instructors";
 
 export default function Page() {
-    const { activities, role } = useProfileContext()
-
-
+    const { activities, role, id } = useProfileContext()
     console.log("HEY", activities)
 
     return (
-        <div className="pb-32 text-dance-e9 flex flex-col gap-2">
-            <title>Profil</title>
+        <div className="pb-32 text-dance-e9 flex flex-col gap-8">
+            {/* <title>Profil</title> */}
             <ProfileHero />
 
             {
                 role === "default" ? (
                     <ClassListMembers activities={activities} />
                 ) : (
-                    <ClassListInstructors activities={activities} />
+                    <ClassListInstructors insId={id} />
                 )
             }
 

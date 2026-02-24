@@ -5,7 +5,7 @@ import InputField from "@/app/_components/input-field";
 import sendMessage from "./action";
 import { useActionState } from "react";
 import { useEffect } from "react";
-
+import ButtonPrimary from "@/app/_components/button-primary";
 import { toast } from "react-toastify";
 
 
@@ -34,8 +34,13 @@ export default function LandingContact() {
             <form className="cust-form flex-col" action={formAction} noValidate>
                 <InputField type="text" name="name" label="navn" defaultValue={state?.values?.name} errors={state?.errors?.name} />
                 <InputField type="email" name="email" label="email" defaultValue={state?.values?.email} errors={state?.errors?.email} />
-                <InputField type="textarea" name="message" label="besked" defaultValue={state?.values?.message} errors={state?.errors?.message}/>
-                <button className="cust-container cust-button cust-acc-gradient text-dance-reg p-2 min-w-40 ml-auto" type="submit">Send besked</button>
+                <InputField type="textarea" name="message" label="besked" defaultValue={state?.values?.message} errors={state?.errors?.message} />
+
+                <ButtonPrimary
+                    label={isPending ? "Vent venligst" : "Tilmeld"}
+                    className={"ml-auto"}
+                    disabled={isPending}
+                />
             </form>
         </LandingSection>
     )
