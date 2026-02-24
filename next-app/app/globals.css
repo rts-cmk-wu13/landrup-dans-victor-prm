@@ -78,7 +78,7 @@
   }
 
   .cust-button {
-    @apply rounded-[1rem_1rem_1px_1rem] font-ubuntu text-lg font-medium text-center leading-none flex items-center justify-center h-12 w-fit
+    @apply rounded-[1rem_1rem_1px_1rem] font-ubuntu text-lg font-medium text-center leading-none flex items-center justify-center h-12 w-fit cursor-pointer
   }
 
   .cust-shape {

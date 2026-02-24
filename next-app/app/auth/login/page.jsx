@@ -1,5 +1,5 @@
 import LandingSection from "@/app/_components/views/landing-page/lp-section";
-import LoginForm from "./LoginForm";
+import LoginForm from "./login-form";
 import { getSession } from "@/app/_lib/dal";
 import { redirect } from "next/navigation";
 
@@ -9,12 +9,18 @@ export default async function Page() {
     const session = await getSession()
     console.log(session)
     if (session) {
-        redirect("/home")
+        return redirect("/home")
     }
 
     return (
-        <LandingSection title="Log ind">
-           <LoginForm />
-        </LandingSection>
+        <>
+            {
+                session ? (null) : (
+                    <LandingSection title="Log ind">
+                        <LoginForm />
+                    </LandingSection>
+                )
+            }
+        </>
     )
 }

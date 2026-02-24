@@ -42,3 +42,26 @@ export const danceClasses = [
         img: "streethiphop.jpg"
     },
 ]
+
+export const pageTitles = [
+    {
+        identifier: "/home/activities",
+        title: "Holdoversigt",
+    },
+    {
+        identifier: "/activity",
+        title: "Holddetaljer",
+    },
+    {
+        identifier: "/home/profile",
+        title: "Profil",
+    },
+    {
+        identifier: "/auth/login",
+        title: "Log ind"
+    },
+    {
+        identifier: "/auth/signup",
+        title: "Opret Bruger"
+    }
+]

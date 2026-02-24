@@ -6,9 +6,6 @@ export const loginSchema = z.object({
         .string({ message: "Type a valid email" }),
     password: z
         .string({ message: "Type a valid email" }),
-    remember: z
-        .string()
-        .optional()
 });
 
 
