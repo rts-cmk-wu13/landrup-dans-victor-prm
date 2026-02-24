@@ -23,7 +23,7 @@ export default async function Page({ params }) {
         <article className="w-full pb-20">
             <DetailsHero
                 img={img}
-                activityID={id}
+                activity={activity}
             />
             <div className="text-dance-e9 flex flex-col gap-2 px-5 pt-4 pb-20">
                 <hgroup className="font-ubuntu">

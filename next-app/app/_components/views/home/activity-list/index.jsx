@@ -8,7 +8,8 @@ export default function ActivityList({ activities }) {
     const { search } = useSearchContext();
 
     const filtered = activities.filter(act =>
-        act.name.toLowerCase().includes(search.toLowerCase())
+        act.name.toLowerCase().startsWith(search.toLowerCase()) ||
+        act.weekday.toLowerCase().startsWith(search.toLowerCase())
     );
 
     return (

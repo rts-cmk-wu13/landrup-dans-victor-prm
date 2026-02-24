@@ -1,4 +1,4 @@
 import { redirect } from "next/navigation"
 export default function Page(){
-    return (redirect("/home/activities"))
+    return (redirect("/home/profile"))
 }

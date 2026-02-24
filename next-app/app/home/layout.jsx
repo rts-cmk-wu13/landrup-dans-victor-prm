@@ -8,6 +8,7 @@ import UserContextProvider from "../_contexts/user-context";
 import SearchContextProvider from "../_contexts/search-context";
 
 export default function HomeLayout({ children }) {
+
   return (
     <UserContextProvider>
       <SearchContextProvider>

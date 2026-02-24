@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { fetchFromAPI } from "@/app/_lib/dal";
 import { useProfileContext } from "@/app/_contexts/user-context";
 
-export default function DetailsHero({ activityID, img }) {
+export default function DetailsHero({ activity, img }) {
     //const [event, setEvent] = useEffect([])
 
     /*  useEffect(async function fetchEvents() {
@@ -16,41 +16,53 @@ export default function DetailsHero({ activityID, img }) {
          //fetchEvents()
      }, []) */
 
-    const handleClick = () => {
-        console.log(activityID)
-    }
-
     const profile = useProfileContext();
     console.log(profile)
+    const { activities, age } = useProfileContext();
 
-    return (
-        <div className="cust-grid-stack -mx-3">
+
+    const handleClick = () => {
+        console.log(activity)
+    }
+
+
+const userIsEnrolled = activities.some(act => act.id === Number(activity.id));
+const userIsOfAge = (age >= activity.minAge && age <= activity.maxAge)
+
+console.log("userIsEnrolled:", userIsEnrolled);
+
+console.log(userIsOfAge)
+
+
+
+return (
+    <div className="cust-grid-stack -mx-3">
+        <Image
+            src={img}
+            alt="Landrup Dans Logo"
+            width={600}
+            height={600}
+            className="object-cover opacity-33 blur-3xl sm:max-h-160 mt-2 w-full"
+            priority
+        />
+
+        {/*  Background Image */}
+        <figure className="
+            flex sm:max-h-160 relative overflow-clip rounded-[0_0_2rem_2rem]">
             <Image
                 src={img}
                 alt="Landrup Dans Logo"
                 width={600}
                 height={600}
-                className="object-cover opacity-33 blur-3xl sm:max-h-160 mt-2 w-full"
+                className="object-cover lg:blur-[3px] w-full"
                 priority
             />
-
-            {/*  Background Image */}
-            <figure className="
-            flex sm:max-h-160 relative overflow-clip rounded-[0_0_2rem_2rem]">
-                <Image
-                    src={img}
-                    alt="Landrup Dans Logo"
-                    width={600}
-                    height={600}
-                    className="object-cover blur-[1px] w-full"
-                    priority
-                />
-            </figure>
-            <ButtonPrimary
-                label="Tilmeld"
-                className={"justify-self-end place-self-end m-8 cust-button absolute"}
-                onClick={handleClick}
-            />
-        </div>
-    )
+        </figure>
+        <ButtonPrimary
+            label="Tilmeld"
+            className={"justify-self-end place-self-end m-8 absolute"}
+            onClick={handleClick}
+        />
+    </div>
+)
 }

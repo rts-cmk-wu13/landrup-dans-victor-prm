@@ -8,8 +8,6 @@ import ClassListInstructors from "@/app/_components/views/home/class-list-instru
 
 export default function Page() {
     const { activities, role, id } = useProfileContext()
-
-
     console.log("HEY", activities)
 
     return (
