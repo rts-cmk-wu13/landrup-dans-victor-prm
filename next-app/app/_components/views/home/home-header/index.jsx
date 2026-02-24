@@ -15,7 +15,7 @@ export default function HomeHeader() {
             <div className="absolute w-full cust-grid-stack text-white items-center h-full px-6">
                 {
                     atDetails && (
-                        <Link href={"/home/activities"}>
+                        <Link className="rounded-4xl bg-dance-drk/50 backdrop-blur-2xl size-fit p-2" href={"/home/activities"}>
                             <FaChevronLeft />
                         </Link>
                     )
