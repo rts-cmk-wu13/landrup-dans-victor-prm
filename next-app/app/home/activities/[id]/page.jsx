@@ -4,6 +4,7 @@ import { capitalizeFirstLetter } from "@/app/_utils/helpers";
 import { formattedClassTime, formattedClassAge } from "@/app/_utils/helpers";
 
 import DetailsHero from "@/app/_components/views/home/details-hero";
+import { notFound } from "next/navigation";
 
 
 export default async function Page({ params }) {
@@ -12,6 +13,7 @@ export default async function Page({ params }) {
 
     const data = await fetchFromAPI("GET", `/api/v1/activities/${id}`)
 
+    if(!data) notFound();
 
     const activity = await data;
     const img = activity.asset.url
