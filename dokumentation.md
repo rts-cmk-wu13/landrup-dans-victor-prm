@@ -34,6 +34,11 @@ Brugen af libraries gør det på mange måde nemmere for udviklere at blive intr
 
 Projektets ensartede struktur, den udbredte brug af komponenter og hjælpefunktioner, samt inklusionen af libraries er med til at gøre appen skalérbar. Det tog en smule længere til at komme fra start, men så snart en god handfuld komponenter var lavet, begyndte det at tage fart, og især de sidste dage op til aflevering var det nemt at være produktiv. I projektets nuværende stand, vil jeg vove at påstå at det skulle være meget ligetil at tilføje nye views/pages/komponenter herfra, samt meget nemmere at lave yderligere interaktioner API'et.
 
+## Ekstraopgave
+Jeg har løst ekstra opgave C - forblive logget ind med cookies <br>
+
+NB! Der er en bug der kan ske i min UserContext efter man er logget ind. Hvis man navigerer tilbage på /home routen, får man en error jeg ikke nåede at løse. Tror det noget med et redirect der går galt. Normalt kan man bare genindlæse siden, og så kan man bruge appen igen.
+
 ## Kodeeksempel
 Jeg synes selv det er smart løst hvordan vi i koden tilmelder/framelder brugere. Vi her deler jeg både noget frontendkode (``details-header/index.jsx``), og noget backend-kode i form at den action der tilhører dette component (``details-header/action.js``).
 
