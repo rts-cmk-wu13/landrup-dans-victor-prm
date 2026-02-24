@@ -12,7 +12,7 @@ import { toast } from "react-toastify";
 export default function DetailsHero({ activity, img }) {
     const { refresh } = useProfileContext();
     const [state, formAction, isPending] = useActionState(addRemoveUser, {});
-    console.log(state)
+    //console.log(state)
 
     useEffect(() => {
         if (state?.success) {
