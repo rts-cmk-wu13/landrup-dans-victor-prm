@@ -1,7 +1,7 @@
 import { fetchFromAPI } from "@/app/_lib/dal"
 import SpinningLoader from "@/app/_components/spinning-loader";
 import { useState, useEffect } from "react";
-import { formattedClassTime,formattedClassAge } from "@/app/_utils/helpers";
+import { formattedClassTime, formattedClassAge } from "@/app/_utils/helpers";
 import ClassCard from "../class-card";
 
 export default function ClassListInstructors() {
@@ -37,6 +37,7 @@ export default function ClassListInstructors() {
                             return (
                                 <ClassCard
                                     key={act.id}
+                                    id={act.id}
                                     title={act.name}
                                     subtitle={subtitle}
                                     instructor={true}

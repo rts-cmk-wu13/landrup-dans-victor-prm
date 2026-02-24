@@ -13,8 +13,8 @@ export default function Page() {
     console.log("HEY", activities)
 
     return (
-        <div className="pb-32 text-dance-e9 flex flex-col gap-2">
-            <title>Profil</title>
+        <div className="pb-32 text-dance-e9 flex flex-col gap-8">
+            {/* <title>Profil</title> */}
             <ProfileHero />
 
             {
