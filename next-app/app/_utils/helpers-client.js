@@ -32,7 +32,7 @@ export function setPageTitle() {
     //const subtitle = ` | ${pageTitles.find(item => item.identifier === path).title}` || "";
     //const title = `Landdrup Dans${subtitle}`
 
-    const title = pageTitles.find(item => item.identifier === path).title
+    const title = pageTitles.find(item => item.identifier === path)?.title || "";
 
     return title;
 }
